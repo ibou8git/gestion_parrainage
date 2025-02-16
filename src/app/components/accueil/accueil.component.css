@@ -1,0 +1,23 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.nav-link {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: #1abc9c;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
