@@ -1,5 +1,3 @@
-app.routes.ts
-
 import { Routes } from '@angular/router';
 import { ImportElecteurComponent } from './components/import-electeurs/import-electeurs.component';
 import { GestionCandidatsComponent } from './components/gestion-candidat/gestion-candidat.component';
