@@ -1,0 +1,53 @@
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 24px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px;
+}
+
+li span {
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: 16px;
+}
+
+.success {
+    color: green;
+    text-align: center;
+    font-size: 16px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}

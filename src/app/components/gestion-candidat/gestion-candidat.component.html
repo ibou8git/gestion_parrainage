@@ -1,0 +1,40 @@
+<!-- Liste des Candidats -->
+<div *ngIf="candidats.length > 0">
+    <h2>Liste des Candidats</h2>
+    <ul>
+        <li *ngFor="let candidat of candidats">
+            {{ candidat.nom }} {{ candidat.prenom }} - {{ candidat.parti }} - {{ candidat.slogan }}
+            <span *ngIf="!candidat.isEligible" style="color: red;">(Non éligible)</span>
+        </li>
+    </ul>
+</div>
+
+<!-- Ajouter un Candidat -->
+<h2>Ajouter un Candidat</h2>
+<form #candidatForm="ngForm" (ngSubmit)="enregistrerCandidat()">
+    <div>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" [(ngModel)]="nouveauCandidat.nom" required>
+    </div>
+    <div>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" [(ngModel)]="nouveauCandidat.prenom" required>
+    </div>
+    <div>
+        <label for="parti">Parti:</label>
+        <input type="text" id="parti" name="parti" [(ngModel)]="nouveauCandidat.parti" required>
+    </div>
+    <div>
+        <label for="slogan">Slogan:</label>
+        <input type="text" id="slogan" name="slogan" [(ngModel)]="nouveauCandidat.slogan" required>
+    </div>
+
+    <div *ngIf="!nouveauCandidat.isEligible">
+        <span style="color: red;">Ce candidat n'est pas éligible. Vérifiez les informations.</span>
+    </div>
+
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+
+    <button type="submit" [disabled]="!candidatForm.form.valid">Enregistrer</button>
+</form>
