@@ -1,0 +1,30 @@
+<div class="monitoring-container">
+    <h2>Statistiques des Parrainages</h2>
+
+    <!-- Indicateur de chargement -->
+    <div *ngIf="isLoading" class="loading">Chargement en cours...</div>
+
+    <!-- Gestion des erreurs -->
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <!-- Affichage des statistiques sous forme de tableau -->
+    <table *ngIf="stats.length > 0" class="stats-table">
+        <thead>
+            <tr>
+                <th>Candidat</th>
+                <th>Nombre de Parrainages</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stat of stats">
+                <td>{{ stat.candidat }}</td>
+                <td>{{ stat.parrainages }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Affichage du graphique -->
+    <div *ngIf="stats.length > 0" class="chart-container">
+        <canvas id="parrainageChart"></canvas>
+    </div>
+</div>

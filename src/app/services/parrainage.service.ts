@@ -6,5 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ParrainageService {
+  private apiUrl = 'http://localhost:3000/parrainages';
 
+  constructor(private http: HttpClient) { }
+
+  getStats(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/stats`);
+  }
 }
