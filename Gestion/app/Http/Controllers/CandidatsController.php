@@ -2,64 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\candidats;
 use Illuminate\Http\Request;
 
-class CandidatsController extends Controller
+class CandidateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function show($id)
     {
-        //
-    }
+        // Simuler des données (remplacez par un modèle si vous avez une base de données)
+        $candidats = [
+            1 => [
+                'id'       => 1,
+                'nom'      => 'Candidat A',
+                'slogan'   => 'Pour un avenir meilleur',
+                'photo'    => '/images/candidatA.jpg',
+                'couleur'  => 'Bleu',
+                'programme'=> 'Programme du parti A: ...'
+            ],
+            2 => [
+                'id'       => 2,
+                'nom'      => 'Candidat B',
+                'slogan'   => 'Ensemble pour le changement',
+                'photo'    => '/images/candidatB.jpg',
+                'couleur'  => 'Rouge',
+                'programme'=> 'Programme du parti B: ...'
+            ]
+        ];
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        // Vérifier si le candidat existe
+        if (!isset($candidats[$id])) {
+            abort(404, 'Candidat non trouvé');
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(candidats $candidats)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(candidats $candidats)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, candidats $candidats)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(candidats $candidats)
-    {
-        //
+        return view('electeurs.candidat_details', ['candidat' => $candidats[$id]]);
     }
 }
