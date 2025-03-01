@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\electeurs;
+use App\Models\Electeur;
 use Illuminate\Http\Request;
 
 class ElecteursController extends Controller
@@ -34,7 +34,7 @@ class ElecteursController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(electeurs $electeurs)
+    public function show(Electeur $electeurs)
     {
         //
     }
@@ -42,7 +42,7 @@ class ElecteursController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(electeurs $electeurs)
+    public function edit(Electeur $electeurs)
     {
         //
     }
@@ -50,7 +50,7 @@ class ElecteursController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, electeurs $electeurs)
+    public function update(Request $request, Electeur $electeurs)
     {
         //
     }
@@ -58,7 +58,7 @@ class ElecteursController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(electeurs $electeurs)
+    public function destroy(Electeur $electeurs)
     {
         //
     }

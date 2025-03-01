@@ -2,64 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\parrainages;
 use Illuminate\Http\Request;
+use App\Models\Parrainage;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
-class ParrainagesController extends Controller
+class ParrainageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function parrainer(Request $request)
     {
-        //
-    }
+        // Vérifier si l'électeur est authentifié
+        $electeur = auth()->guard('web')->user(); 
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        if (!$electeur) {
+            return response()->json(['error' => 'Utilisateur non authentifié'], 401);
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // Vérifier si l'utilisateur est bien un électeur
+        if ($electeur->type_utilisateur !== 'ELECTEUR') {
+            return response()->json(['error' => 'Seuls les électeurs peuvent parrainer'], 403);
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(parrainages $parrainages)
-    {
-        //
-    }
+        // Valider la requête
+        $validator = Validator::make($request->all(), [
+            'candidat_id' => 'required|exists:candidats,id', // Vérifie que le candidat existe bien en base
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(parrainages $parrainages)
-    {
-        //
-    }
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, parrainages $parrainages)
-    {
-        //
-    }
+        // Vérifier si l'électeur a déjà parrainé
+        if (Parrainage::where('electeur_id', $electeur->id)->exists()) {
+            return response()->json(['error' => 'Vous avez déjà parrainé un candidat'], 400);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(parrainages $parrainages)
-    {
-        //
+        // Enregistrer le parrainage
+        try {
+            $parrainage = Parrainage::create([
+                'date_parrainage' => Carbon::now(),
+                'electeur_id' => $electeur->id,
+                'candidat_id' => $request->candidat_id,
+                'statut' => 'EN_ATTENTE',
+            ]);
+
+            return response()->json(['success' => true, 'message' => 'Parrainage enregistré avec succès']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erreur lors de l\'enregistrement du parrainage'], 500);
+        }
     }
 }

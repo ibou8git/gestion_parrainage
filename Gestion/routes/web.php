@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\ParrainageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ElecteurController;
+use App\Http\Controllers\CandidateController;
+
+
 
 // Affichage du formulaire d'inscription
 Route::get('/electeurs/inscription', function () {
@@ -34,13 +38,11 @@ Route::get('/electeurs/parrainage', function () {
     return view('electeurs.parrainage');
 })->name('electeurs.parrainage.form');
 
-use App\Http\Controllers\CandidateController;
-
 Route::get('/electeurs/candidat/{id}', [CandidateController::class, 'show'])->name('electeurs.candidat.details');
-
 
 Route::get('/electeurs/confirmer_parrainage', function () {
     return view('electeurs.confirmer_parrainage');
 })->name('electeurs.confirmer_parrainage.form');
 
-Route::post('/electeurs/confirmer_parrainage', [\App\Http\Controllers\ParrainagesController::class, 'confirmerParrainage'])->name('electeurs.confirmer_parrainage');
+Route::post('/electeurs/confirmer_parrainage', [ParrainageController::class, 'confirmerParrainage'])
+    ->name('electeurs.confirmer_parrainage');
