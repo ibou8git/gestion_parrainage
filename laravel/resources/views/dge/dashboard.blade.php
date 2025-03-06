@@ -1,14 +1,34 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard DGE</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-5">
-        <h1 class="text-center">Bienvenue sur le Dashboard DGE</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Tableau de Bord - DGE</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Électeurs</h4>
+                    <p class="card-text display-4">{{ $electeurs }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Candidats</h4>
+                    <p class="card-text display-4">{{ $candidats }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Parrainages</h4>
+                    <p class="card-text display-4">{{ $parrainages }}</p>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
+@endsection

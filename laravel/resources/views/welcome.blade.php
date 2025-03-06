@@ -15,6 +15,8 @@
             <a href="{{ route('dge.candidats') }}" class="btn btn-success mx-2">Liste des Candidats</a>
             <a href="{{ route('dge.dashboard') }}" class="btn btn-info mx-2">Dashboard DGE</a>
         </div>
+      
+
     </div>
 </body>
 </html>

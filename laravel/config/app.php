@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
+   
 
+    'upload_electeurs_disponible' => true,
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -213,3 +215,5 @@ return [
     ])->toArray(),
 
 ];
+
+

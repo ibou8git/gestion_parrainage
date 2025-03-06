@@ -17,7 +17,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/dge/import';  // Redirige directement vers l'import après connexion
+
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
