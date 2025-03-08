@@ -11,8 +11,8 @@ class CreateParrainagesTable extends Migration
         Schema::create('parrainages', function (Blueprint $table) {
             $table->id();
             $table->date('date_parrainage');
-            $table->unsignedBigInteger('electeur_id'); // Changement ici
-            $table->unsignedBigInteger('candidat_id'); // Changement ici
+            $table->string('electeur_id', 36); //Changement ici
+            $table->string('candidat_id', 36); // Changement ici
             $table->enum('statut', ['EN_ATTENTE', 'VALIDE', 'REJETE'])->default('EN_ATTENTE');
             $table->timestamps();
 

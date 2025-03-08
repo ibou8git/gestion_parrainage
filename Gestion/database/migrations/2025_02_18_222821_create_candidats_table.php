@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('candidats', function (Blueprint $table) {
-            $table->id();
+            $table->string('id', 36)->primary(); // Changement ici
             $table->string('numero_carte', 20)->unique();
             $table->string('nom', 100);
             $table->string('prenom', 100);
