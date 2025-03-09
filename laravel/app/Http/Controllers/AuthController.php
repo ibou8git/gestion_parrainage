@@ -16,24 +16,27 @@ class AuthController extends Controller
 
     // Traiter la connexion
     public function login(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
-
-    $user = User::where('email', $request->email)->first();
-
-    if ($user && Hash::check($request->password, $user->password)) {
-        auth()->login($user);  // Connecter l'utilisateur à la session
-        return redirect()->route('dge.importForm'); // Rediriger vers la page d'import
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        $user = User::where('email', $request->email)->first();
+    
+        if (!$user) {
+            return back()->withErrors(['email' => 'Utilisateur introuvable.'])->withInput($request->only('email'));
+        }
+    
+        if (!Hash::check($request->password, $user->password)) {
+            return back()->withErrors(['password' => 'Mot de passe incorrect.'])->withInput($request->only('email'));
+        }
+    
+        auth()->login($user);
+    
+        return redirect()->route('dge.importForm')->with('success', 'Connexion réussie !');
     }
-
-    return back()->withErrors(['email' => 'Identifiants incorrects.'])->withInput();
-}
-
-
-    // Afficher le formulaire d'inscription
+     // Afficher le formulaire d'inscription
     public function showRegisterForm()
     {
         return view('auth.register');
