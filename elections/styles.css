@@ -1,0 +1,109 @@
+/* Interface CSS conforme à l'image fournie */
+
+/* Importation de la police */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0A0E1A;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+    width: 250px;
+    background: #12172B;
+    color: white;
+    min-height: 100vh;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+} 
+
+
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -250px;
+}
+
+
+.sidebar-heading {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.list-group {
+    padding: 20px 10px;
+}
+
+.list-group-item {
+    display: block;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #1E2A47, #141B31);
+    border-radius: 5px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.list-group-item:hover {
+    background: linear-gradient(90deg, #FFD700, #FF4500);
+    color: black;
+}
+
+.logout {
+    background: #B22222;
+    text-align: center;
+}
+
+.logout:hover {
+    background: #FF6347;
+}
+
+/* Page Content */
+#page-content-wrapper {
+    flex: 1;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #141B31;
+    padding: 10px 20px;
+    border-bottom: 3px solid #FFD700;
+}
+
+.navbar-text {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+h2 {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5);
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#menu-toggle {
+    background: none;
+    border: none;
+    color: #FFD700;
+    font-size: 24px;
+    cursor: pointer;
+}

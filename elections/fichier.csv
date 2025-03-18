@@ -1,0 +1,7 @@
+num_electeur,nom,prenom,cin,date_naissance,commune,lieu_de_vote,bureau
+123467,Barry,Abdou,C123456800,1993-03-12,Kolda,Lycee Alpha Molo Balde,02
+123468,Cisse,Adama,C123456801,1988-07-22,Fatick,CEM Abdoulaye Sadji,04
+123469,Ngom,Astou,C123456802,1996-10-30,Thies,Lycee Malick Sy,05
+123470,Ka,Seydou,C123456803,1984-05-18,Guediawaye,CEM Bouna Kane,07
+123471,Ly,Marie,C123456804,1999-01-25,Louga,Lycee Ahmadou Ndack Seck,09
+123456,Sall,Marem,C123456801,2004-08-20,Saint-Louis,Lycee Charles De Gaulle,11
