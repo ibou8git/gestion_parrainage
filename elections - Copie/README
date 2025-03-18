@@ -1,0 +1,9 @@
+Donc pour les fichiers que je vous ai envoyés , vous commencer par localhost/elections/upload.php pour insérer le fichier csv
+Puis après message "importation csv reussie"
+Le lien localhost/elections/enregistrer_candidat vous redirige vers la partie candidat :
+  -tu mets le numéro d'electeur pour la vérification ( assure toi que le numéro d'électeurs soit dans le fichier.csv)
+  - tu es redirigé vers la page de compléments d'informations c'est a dire l'inscription ( donc la tu mets l'email , le slogan , la partie politique ect..)
+    -  après enregistrement tu es rediriger vers la page de connexion_candidat.php
+    -Tu te connectes avec l'email et le mot de passe que tu avais remplis et ça te redirige vers dashboard (Qu'on devra modifier , pour voir
+    les informations personnelles du candidat , et s'arranger pour tout afficher idk comment faire lol)
+    breff c'est tout
